@@ -37,9 +37,11 @@
     <script>
       (() => {
         const frame = document.getElementById("handbook");
-        const baseUrl = "https://the-sunday-frame.lie-angelica1525.chatgpt.site/";
-        const syncHash = () => {
-          frame.src = baseUrl + window.location.hash;
+      // Bump this value whenever the hosted handbook is redeployed so GitHub Pages
+      // does not keep showing the previous iframe document from its cache.
+      const baseUrl = "https://the-sunday-frame.lie-angelica1525.chatgpt.site/?v=20260828-11";
+      const syncHash = () => {
+        frame.src = baseUrl + window.location.hash;
         };
         syncHash();
         window.addEventListener("hashchange", syncHash);
